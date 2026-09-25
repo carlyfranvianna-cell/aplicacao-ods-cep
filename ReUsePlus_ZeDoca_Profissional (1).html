@@ -1,0 +1,2348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="ReUse+ - Plataforma de doação, reutilização e sustentabilidade">
+
+    <title>ReUse+ | Doe, Reutilize e Transforme</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <style>
+
+        :root {
+            --verde-escuro: #14532d;
+            --verde: #15803d;
+            --verde-claro: #22c55e;
+            --verde-fundo: #ecfdf5;
+            --cinza: #64748b;
+            --escuro: #0f172a;
+            --amarelo: #facc15;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f8f6;
+            color: #263238;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background: rgba(20, 83, 45, 0.98);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.55rem;
+        }
+
+        .navbar-brand i {
+            color: #86efac;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .nav-link:hover {
+            color: #86efac !important;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 720px;
+            display: flex;
+            align-items: center;
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(20,83,45,.78),
+                    rgba(6,78,59,.72)
+                ),
+                url("https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=1800&q=85")
+                center/cover no-repeat;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,.16);
+            border: 1px solid rgba(255,255,255,.30);
+            padding: 10px 18px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.08;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 720px;
+        }
+
+        .btn-main {
+            background: var(--verde-claro);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 35px;
+            font-weight: bold;
+        }
+
+        .btn-main:hover {
+            background: #16a34a;
+            color: white;
+        }
+
+        .hero-card {
+            background: rgba(255,255,255,.96);
+            color: #1f2937;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,.25);
+            text-align: center;
+        }
+
+        .hero-card i {
+            font-size: 75px;
+            color: var(--verde);
+        }
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--verde-escuro);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--cinza);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           CATEGORIAS
+        ========================= */
+
+        .category-card {
+            height: 100%;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,.08);
+            transition: .3s;
+            border: none;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(0,0,0,.14);
+        }
+
+        .category-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .category-body {
+            padding: 25px;
+        }
+
+        .category-icon {
+            font-size: 42px;
+            color: var(--verde);
+        }
+
+        /* =========================
+           ODS
+        ========================= */
+
+        .ods-section {
+            background: var(--verde-fundo);
+        }
+
+        .ods-box {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(0,0,0,.08);
+        }
+
+        .ods-number {
+            width: 145px;
+            height: 145px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--verde);
+            color: white;
+            font-weight: 800;
+            font-size: 3.5rem;
+        }
+
+        /* =========================
+           COMO FUNCIONA
+        ========================= */
+
+        .step {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--verde);
+            color: white;
+            font-size: 1.7rem;
+            font-weight: bold;
+        }
+
+        /* =========================
+           FORMULÁRIO
+        ========================= */
+
+        .form-box,
+        .feedback-box {
+            background: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(0,0,0,.08);
+        }
+
+        .form-label {
+            font-weight: 700;
+        }
+
+        /* =========================
+           BUSCA
+        ========================= */
+
+        .search-box {
+            background: white;
+            padding: 30px;
+            border-radius: 22px;
+            box-shadow: 0 8px 30px rgba(0,0,0,.07);
+            margin-bottom: 40px;
+        }
+
+        /* =========================
+           DOAÇÕES
+        ========================= */
+
+        .donation-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 8px 25px rgba(0,0,0,.08);
+        }
+
+        .donation-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .donation-body {
+            padding: 25px;
+        }
+
+        .donation-tag {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: .85rem;
+            font-weight: bold;
+        }
+
+        /* =========================
+           IMPACTO
+        ========================= */
+
+        .impact-section {
+            padding: 90px 0;
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(20,83,45,.93),
+                    rgba(20,83,45,.93)
+                ),
+                url("https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1800&q=85")
+                center/cover no-repeat;
+        }
+
+        .impact-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+        }
+
+        .impact-icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           FEEDBACK
+        ========================= */
+
+        .rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 5px;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            color: #cbd5e1;
+            font-size: 2.7rem;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .rating label:hover,
+        .rating label:hover ~ label,
+        .rating input:checked ~ label {
+            color: var(--amarelo);
+        }
+
+        .preview-doacao {
+            width: 220px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid var(--verde);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--escuro);
+            color: white;
+            padding: 55px 0;
+        }
+
+        footer a {
+            color: #86efac;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 991px) {
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+        }
+
+        @media (max-width: 576px) {
+
+            .hero {
+                min-height: 650px;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .form-box,
+            .feedback-box,
+            .ods-box {
+                padding: 25px;
+            }
+
+        }
+
+    
+        /* =========================
+           REUSE+ 2.0 — ESTOQUE / CEP / PRÉ-CADASTRO
+        ========================= */
+        .stock-panel {
+            background: #fff;
+            border-radius: 22px;
+            padding: 28px;
+            box-shadow: 0 10px 35px rgba(0,0,0,.08);
+        }
+        .stock-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 20px;
+            height: 100%;
+            background: #fff;
+            transition: .2s;
+        }
+        .stock-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,.08); }
+        .stock-number { font-size: 2rem; font-weight: 800; color: var(--verde-escuro); }
+        .stock-badge { border-radius: 999px; padding: 5px 10px; font-size: .78rem; font-weight: 700; }
+        .stock-available { background:#dcfce7; color:#166534; }
+        .stock-low { background:#fef3c7; color:#92400e; }
+        .stock-empty { background:#fee2e2; color:#991b1b; }
+        .mini-stat {
+            background: var(--verde-fundo);
+            border-radius: 16px;
+            padding: 16px;
+            text-align: center;
+            height: 100%;
+        }
+        .mini-stat strong { display:block; font-size:1.55rem; color:var(--verde-escuro); }
+        .location-box {
+            border: 1px solid #dbeafe;
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 18px;
+        }
+        .cep-status { min-height: 24px; font-size: .9rem; }
+        .modal-content { border:0; border-radius:22px; overflow:hidden; }
+        .modal-header { background: var(--verde-escuro); color:#fff; }
+        .table-responsive { border-radius: 14px; }
+        .table thead th { white-space:nowrap; }
+        .muted-note { color:#64748b; font-size:.88rem; }
+        .address-readonly { background:#f1f5f9 !important; }
+        @media (max-width:576px) {
+            .stock-panel { padding:20px; }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="#inicio">
+                <i class="bi bi-recycle"></i>
+                ReUse+
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu"
+                aria-label="Abrir menu"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categorias">
+                            Categorias
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#como">
+                            Como funciona
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#doar">
+                            Fazer doação
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#doacoes">
+                            Doações
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#estoque">
+                            Estoque
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#feedback">
+                            Feedback
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<main>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section id="inicio" class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <span class="hero-badge">
+                    ♻️ Economia circular e sustentabilidade
+                </span>
+
+                <h1>
+                    Doe o que você não usa.
+                    Dê uma nova vida.
+                </h1>
+
+                <p>
+                    A ReUse+ conecta pessoas que possuem objetos
+                    sem utilização com pessoas, escolas, instituições
+                    e projetos sociais que podem dar uma nova finalidade
+                    a esses materiais.
+                </p>
+
+                <div class="mt-4">
+
+                    <a
+                        href="#doar"
+                        class="btn btn-main btn-lg me-2 mb-2"
+                    >
+                        <i class="bi bi-heart-fill"></i>
+                        Quero doar
+                    </a>
+
+                    <a
+                        href="#doacoes"
+                        class="btn btn-outline-light btn-lg mb-2"
+                    >
+                        Ver doações
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 mt-5 mt-lg-0">
+
+                <div class="hero-card">
+
+                    <i class="bi bi-recycle"></i>
+
+                    <h3 class="mt-3">
+                        Doe. Reutilize. Transforme.
+                    </h3>
+
+                    <p>
+                        Um objeto parado em sua casa
+                        pode ser útil para outra pessoa.
+                    </p>
+
+                    <hr>
+
+                    <strong>ODS 12</strong>
+
+                    <p class="mb-0">
+                        Consumo e Produção Responsáveis
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     CATEGORIAS
+===================================================== -->
+
+<section id="categorias" class="section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            O que você pode doar?
+        </h2>
+
+        <p class="section-subtitle">
+            Materiais que ainda possuem utilidade podem ganhar
+            uma nova finalidade. Escolha uma categoria.
+        </p>
+
+        <div class="row g-4">
+
+            <!-- LIVROS -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="category-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=900&q=80"
+                        class="category-image"
+                        alt="Livros para doação"
+                    >
+
+                    <div class="category-body">
+
+                        <i class="bi bi-book category-icon"></i>
+
+                        <h4 class="mt-3">
+                            Livros
+                        </h4>
+
+                        <p>
+                            Livros escolares, romances, revistas,
+                            quadrinhos e materiais educativos.
+                        </p>
+
+                        <button
+                            class="btn btn-success"
+                            onclick="selecionarCategoria('Livros')"
+                        >
+                            Quero doar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- COMPUTADORES -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="category-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=900&q=80"
+                        class="category-image"
+                        alt="Computador para doação"
+                    >
+
+                    <div class="category-body">
+
+                        <i class="bi bi-pc-display category-icon"></i>
+
+                        <h4 class="mt-3">
+                            Computadores
+                        </h4>
+
+                        <p>
+                            Computadores, notebooks, monitores,
+                            teclados, mouses e acessórios.
+                        </p>
+
+                        <button
+                            class="btn btn-success"
+                            onclick="selecionarCategoria('Computadores')"
+                        >
+                            Quero doar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- IMPRESSORAS -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="category-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1612815154858-60aa4c59e34e?auto=format&fit=crop&w=900&q=80"
+                        class="category-image"
+                        alt="Impressora para doação"
+                    >
+
+                    <div class="category-body">
+
+                        <i class="bi bi-printer category-icon"></i>
+
+                        <h4 class="mt-3">
+                            Impressoras
+                        </h4>
+
+                        <p>
+                            Impressoras e equipamentos de impressão
+                            que ainda podem ser utilizados.
+                        </p>
+
+                        <button
+                            class="btn btn-success"
+                            onclick="selecionarCategoria('Impressoras')"
+                        >
+                            Quero doar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- MÓVEIS -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="category-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80"
+                        class="category-image"
+                        alt="Móveis para doação"
+                    >
+
+                    <div class="category-body">
+
+                        <i class="bi bi-house-door category-icon"></i>
+
+                        <h4 class="mt-3">
+                            Móveis
+                        </h4>
+
+                        <p>
+                            Mesas, cadeiras, estantes, armários,
+                            sofás e outros móveis.
+                        </p>
+
+                        <button
+                            class="btn btn-success"
+                            onclick="selecionarCategoria('Móveis')"
+                        >
+                            Quero doar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- UTILITÁRIOS -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="category-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=900&q=80"
+                        class="category-image"
+                        alt="Utilitários para doação"
+                    >
+
+                    <div class="category-body">
+
+                        <i class="bi bi-box-seam category-icon"></i>
+
+                        <h4 class="mt-3">
+                            Utilitários
+                        </h4>
+
+                        <p>
+                            Utensílios domésticos, ferramentas,
+                            materiais escolares e outros objetos.
+                        </p>
+
+                        <button
+                            class="btn btn-success"
+                            onclick="selecionarCategoria('Utilitários')"
+                        >
+                            Quero doar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ELETRÔNICOS -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="category-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+                        class="category-image"
+                        alt="Eletrônicos para reutilização"
+                    >
+
+                    <div class="category-body">
+
+                        <i class="bi bi-cpu category-icon"></i>
+
+                        <h4 class="mt-3">
+                            Eletrônicos
+                        </h4>
+
+                        <p>
+                            Equipamentos eletrônicos destinados
+                            ao reaproveitamento ou reciclagem.
+                        </p>
+
+                        <button
+                            class="btn btn-success"
+                            onclick="selecionarCategoria('Eletrônicos')"
+                        >
+                            Quero doar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     ODS 12
+===================================================== -->
+
+<section class="section ods-section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            ReUse+ e o ODS 12
+        </h2>
+
+        <p class="section-subtitle">
+            A proposta estimula a reutilização de objetos e
+            práticas de consumo mais responsáveis.
+        </p>
+
+        <div class="ods-box">
+
+            <div class="row align-items-center">
+
+                <div class="col-md-4 text-center">
+
+                    <div class="ods-number">
+                        12
+                    </div>
+
+                    <h3 class="mt-4">
+                        ODS 12
+                    </h3>
+
+                    <p>
+                        Consumo e Produção Responsáveis
+                    </p>
+
+                </div>
+
+                <div class="col-md-8">
+
+                    <h3>
+                        Menos descarte. Mais reutilização.
+                    </h3>
+
+                    <p>
+                        A ReUse+ pretende permitir que materiais
+                        que ainda possuem valor de uso continuem
+                        circulando em vez de serem descartados.
+                    </p>
+
+                    <div class="alert alert-success">
+                        <strong>Objetivo:</strong>
+                        conectar tecnologia, sustentabilidade
+                        e responsabilidade social.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     COMO FUNCIONA
+===================================================== -->
+
+<section id="como" class="section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Como funciona?
+        </h2>
+
+        <p class="section-subtitle">
+            O processo foi pensado para ser simples e acessível.
+        </p>
+
+        <div class="row g-4">
+
+            <div class="col-md-3">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Cadastre</h4>
+                    <p>Informe o item que deseja doar.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Descreva</h4>
+                    <p>Informe categoria, quantidade e cidade.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Encontre</h4>
+                    <p>Outras pessoas poderão localizar a doação.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Reutilize</h4>
+                    <p>O objeto ganha uma nova finalidade.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     FORMULÁRIO
+===================================================== -->
+
+<section id="doar" class="section bg-light">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Cadastrar uma doação
+        </h2>
+
+        <p class="section-subtitle">
+            Cadastre gratuitamente um item que você deseja disponibilizar.
+        </p>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-9">
+
+                <div class="form-box">
+
+                    <form id="formDoacao">
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Nome do doador
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="nomeDoador"
+                                    class="form-control"
+                                    placeholder="Digite seu nome"
+                                    required
+                                >
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    E-mail
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="emailDoador"
+                                    class="form-control"
+                                    placeholder="seuemail@email.com"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Categoria
+                                </label>
+
+                                <select
+                                    id="categoriaDoacao"
+                                    class="form-select"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Selecione
+                                    </option>
+
+                                    <option>Livros</option>
+                                    <option>Computadores</option>
+                                    <option>Impressoras</option>
+                                    <option>Móveis</option>
+                                    <option>Utilitários</option>
+                                    <option>Eletrônicos</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Estado de conservação
+                                </label>
+
+                                <select
+                                    id="estadoDoacao"
+                                    class="form-select"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Selecione
+                                    </option>
+
+                                    <option>Excelente</option>
+                                    <option>Bom</option>
+                                    <option>Regular</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4 mb-3">
+
+                                <label class="form-label">
+                                    Quantidade
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="quantidadeDoacao"
+                                    class="form-control"
+                                    min="1"
+                                    value="1"
+                                    required
+                                >
+
+                            </div>
+
+                            <div class="col-md-8 mb-3">
+
+                                <label class="form-label">
+                                    Cidade
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="cidadeDoacao"
+                                    class="form-control"
+                                    placeholder="Ex.: São Luís"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">CEP do local da doação/retirada</label>
+                                <input type="text" id="cepDoacao" class="form-control" inputmode="numeric" maxlength="9" placeholder="00000-000" required>
+                                <div id="statusCepDoacao" class="cep-status text-muted mt-1"></div>
+                            </div>
+                            <div class="col-md-8 mb-3">
+                                <label class="form-label">Endereço do local</label>
+                                <input type="text" id="enderecoDoacao" class="form-control address-readonly" readonly required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Título da doação
+                            </label>
+
+                            <input
+                                type="text"
+                                id="tituloDoacao"
+                                class="form-control"
+                                placeholder="Ex.: Livros de História"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Descrição
+                            </label>
+
+                            <textarea
+                                id="descricaoDoacao"
+                                class="form-control"
+                                rows="5"
+                                placeholder="Descreva o item"
+                                required
+                            ></textarea>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Foto do item
+                            </label>
+
+                            <input
+                                type="file"
+                                id="fotoDoacao"
+                                class="form-control"
+                                accept="image/*"
+                            >
+
+                            <div id="previewFoto" class="mt-3"></div>
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-success btn-lg w-100"
+                        >
+
+                            <i class="bi bi-heart-fill"></i>
+
+                            Cadastrar doação
+
+                        </button>
+
+                    </form>
+
+                    <div
+                        id="mensagemDoacao"
+                        class="alert alert-success mt-4 d-none"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     DOAÇÕES DISPONÍVEIS
+===================================================== -->
+
+<section id="doacoes" class="section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Doações disponíveis
+        </h2>
+
+        <p class="section-subtitle">
+            Pesquise por item, categoria ou cidade.
+        </p>
+
+        <div class="search-box">
+
+            <div class="row g-3">
+
+                <div class="col-md-5">
+
+                    <label class="form-label">
+                        Pesquisar item
+                    </label>
+
+                    <input
+                        type="text"
+                        id="busca"
+                        class="form-control"
+                        placeholder="Ex.: livros"
+                    >
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Categoria
+                    </label>
+
+                    <select
+                        id="filtroCategoria"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            Todas
+                        </option>
+
+                        <option>Livros</option>
+                        <option>Computadores</option>
+                        <option>Impressoras</option>
+                        <option>Móveis</option>
+                        <option>Utilitários</option>
+                        <option>Eletrônicos</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <label class="form-label">
+                        Cidade
+                    </label>
+
+                    <input
+                        type="text"
+                        id="filtroCidade"
+                        class="form-control"
+                        placeholder="Cidade"
+                    >
+
+                </div>
+
+                <div class="col-md-2 d-flex align-items-end">
+
+                    <button
+                        class="btn btn-success w-100"
+                        onclick="filtrarDoacoes()"
+                    >
+
+                        <i class="bi bi-search"></i>
+
+                        Buscar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="listaDoacoes" class="row g-4">
+
+            <!-- DOAÇÃO 1 -->
+
+            <div
+                class="col-md-6 col-lg-4 item-doacao"
+                data-categoria="Livros"
+                data-cidade="São Luís"
+                data-titulo="Livros de História"
+            >
+
+                <div class="donation-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=900&q=80"
+                        class="donation-image"
+                        alt="Livros de História"
+                    >
+
+                    <div class="donation-body">
+
+                        <span class="donation-tag">
+                            Livros
+                        </span>
+
+                        <h4 class="mt-3">
+                            Livros de História
+                        </h4>
+
+                        <p>
+                            Coleção de livros em bom estado.
+                        </p>
+
+                        <p>
+                            <i class="bi bi-geo-alt-fill text-success"></i>
+                            São Luís
+                        </p>
+
+                        <p>
+                            <i class="bi bi-box-seam text-success"></i>
+                            Quantidade: 10
+                        </p>
+
+                        <button
+                            class="btn btn-outline-success"
+                            onclick="solicitarDoacao('Livros de História')"
+                        >
+                            Tenho interesse
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- DOAÇÃO 2 -->
+
+            <div
+                class="col-md-6 col-lg-4 item-doacao"
+                data-categoria="Computadores"
+                data-cidade="Imperatriz"
+                data-titulo="Notebook"
+            >
+
+                <div class="donation-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=900&q=80"
+                        class="donation-image"
+                        alt="Notebook"
+                    >
+
+                    <div class="donation-body">
+
+                        <span class="donation-tag">
+                            Computadores
+                        </span>
+
+                        <h4 class="mt-3">
+                            Notebook
+                        </h4>
+
+                        <p>
+                            Notebook em bom estado.
+                        </p>
+
+                        <p>
+                            <i class="bi bi-geo-alt-fill text-success"></i>
+                            Imperatriz
+                        </p>
+
+                        <p>
+                            <i class="bi bi-box-seam text-success"></i>
+                            Quantidade: 1
+                        </p>
+
+                        <button
+                            class="btn btn-outline-success"
+                            onclick="solicitarDoacao('Notebook')"
+                        >
+                            Tenho interesse
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- DOAÇÃO 3 -->
+
+            <div
+                class="col-md-6 col-lg-4 item-doacao"
+                data-categoria="Móveis"
+                data-cidade="São José de Ribamar"
+                data-titulo="Mesa de escritório"
+            >
+
+                <div class="donation-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80"
+                        class="donation-image"
+                        alt="Mesa de escritório"
+                    >
+
+                    <div class="donation-body">
+
+                        <span class="donation-tag">
+                            Móveis
+                        </span>
+
+                        <h4 class="mt-3">
+                            Mesa de escritório
+                        </h4>
+
+                        <p>
+                            Mesa em bom estado de conservação.
+                        </p>
+
+                        <p>
+                            <i class="bi bi-geo-alt-fill text-success"></i>
+                            São José de Ribamar
+                        </p>
+
+                        <p>
+                            <i class="bi bi-box-seam text-success"></i>
+                            Quantidade: 2
+                        </p>
+
+                        <button
+                            class="btn btn-outline-success"
+                            onclick="solicitarDoacao('Mesa de escritório')"
+                        >
+                            Tenho interesse
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div
+            id="semResultados"
+            class="alert alert-warning mt-4 d-none"
+        >
+            Nenhuma doação encontrada.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ESTOQUE E LOCALIZAÇÃO
+===================================================== -->
+<section id="estoque" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Estoque e retiradas</h2>
+        <p class="section-subtitle">
+            Consulte os itens disponíveis, faça o pré-cadastro de interesse e localize a retirada em Zé Doca por CEP.
+        </p>
+
+        <div class="row g-3 mb-4">
+            <div class="col-6 col-lg-3"><div class="mini-stat"><i class="bi bi-box-seam text-success fs-3"></i><strong id="statDisponivel">0</strong><span>unidades disponíveis</span></div></div>
+            <div class="col-6 col-lg-3"><div class="mini-stat"><i class="bi bi-bookmark-check text-success fs-3"></i><strong id="statRetido">0</strong><span>unidades retidas</span></div></div>
+            <div class="col-6 col-lg-3"><div class="mini-stat"><i class="bi bi-person-check text-success fs-3"></i><strong id="statInteresses">0</strong><span>pré-cadastros</span></div></div>
+            <div class="col-6 col-lg-3"><div class="mini-stat"><i class="bi bi-geo-alt text-success fs-3"></i><strong>Zé Doca</strong><span>área de atendimento</span></div></div>
+        </div>
+
+        <div class="stock-panel">
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 align-items-md-center mb-4">
+                <div>
+                    <h3 class="mb-1">Controle de estoque</h3>
+                    <p class="muted-note mb-0">A reserva é abatida do disponível e fica registrada como <strong>Retida</strong>.</p>
+                </div>
+                <button class="btn btn-outline-success" onclick="abrirGestao()">
+                    <i class="bi bi-clipboard-data"></i> Ver pré-cadastros
+                </button>
+            </div>
+            <div id="painelEstoque" class="row g-3"></div>
+        </div>
+
+        <div class="row g-4 mt-2">
+            <div class="col-lg-6">
+                <div class="location-box h-100">
+                    <h4><i class="bi bi-pin-map-fill text-success"></i> Retirada em Zé Doca</h4>
+                    <p class="mb-3">Informe um CEP de Zé Doca para localizar o endereço. O sistema usa a consulta pública do ViaCEP.</p>
+                    <div class="row g-2">
+                        <div class="col-sm-5">
+                            <label class="form-label">CEP</label>
+                            <input id="cepRetirada" class="form-control" inputmode="numeric" maxlength="9" placeholder="00000-000">
+                        </div>
+                        <div class="col-sm-7">
+                            <label class="form-label">Endereço encontrado</label>
+                            <input id="enderecoRetirada" class="form-control address-readonly" readonly>
+                        </div>
+                        <div class="col-12">
+                            <div id="statusCepRetirada" class="cep-status text-muted"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="location-box h-100">
+                    <h4><i class="bi bi-box-arrow-in-down text-success"></i> Local para entrega de doações</h4>
+                    <p class="mb-3">No cadastro da doação, o responsável informa o CEP do ponto onde o objeto poderá ser entregue/retirado.</p>
+                    <div class="alert alert-success mb-0">
+                        <i class="bi bi-shield-check"></i>
+                        <strong>Regra do projeto:</strong> o endereço é aceito somente quando o ViaCEP identificar o município como <strong>Zé Doca/MA</strong>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL DE PRÉ-CADASTRO -->
+<div class="modal fade" id="modalInteresse" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="bi bi-person-plus"></i> Pré-cadastro de interesse</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <div id="resumoItemInteresse" class="alert alert-success"></div>
+        <form id="formInteresse">
+          <input type="hidden" id="interesseItemId">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Nome completo</label>
+              <input id="interesseNome" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">E-mail</label>
+              <input id="interesseEmail" type="email" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Telefone</label>
+              <input id="interesseTelefone" class="form-control" inputmode="tel" required>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">CEP em Zé Doca</label>
+              <input id="interesseCep" class="form-control" inputmode="numeric" maxlength="9" placeholder="00000-000" required>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Quantidade</label>
+              <input id="interesseQuantidade" type="number" min="1" value="1" class="form-control" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Endereço</label>
+              <input id="interesseEndereco" class="form-control address-readonly" readonly>
+              <div id="statusCepInteresse" class="cep-status text-muted mt-1"></div>
+            </div>
+          </div>
+          <div class="alert alert-warning mt-4 mb-0">
+            <i class="bi bi-info-circle"></i>
+            Este é um <strong>pré-cadastro</strong>. A quantidade é retida no estoque para a demonstração e a retirada deve ser confirmada posteriormente.
+          </div>
+          <button class="btn btn-success w-100 mt-4 btn-lg" type="submit">
+            <i class="bi bi-bookmark-check"></i> Reservar quantidade
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE GESTÃO -->
+<div class="modal fade" id="modalGestao" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="bi bi-clipboard-data"></i> Gestão de pré-cadastros</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <div id="listaInteresses"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     IMPACTO
+===================================================== -->
+
+<section class="impact-section">
+
+    <div class="container">
+
+        <div class="row text-center">
+
+            <div class="col-md-4 mb-4">
+
+                <div class="impact-icon">
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+
+                <div id="contadorDoacoes" class="impact-number">
+                    3
+                </div>
+
+                <p>
+                    Doações cadastradas
+                </p>
+
+            </div>
+
+            <div class="col-md-4 mb-4">
+
+                <div class="impact-icon">
+                    <i class="bi bi-box-seam"></i>
+                </div>
+
+                <div id="contadorItens" class="impact-number">
+                    13
+                </div>
+
+                <p>
+                    Itens disponibilizados
+                </p>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="impact-icon">
+                    <i class="bi bi-recycle"></i>
+                </div>
+
+                <div class="impact-number">
+                    ♻️
+                </div>
+
+                <p>
+                    Mais reutilização
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     FEEDBACK
+===================================================== -->
+
+<section id="feedback" class="section bg-light">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Deixe seu feedback
+        </h2>
+
+        <p class="section-subtitle">
+            Sua opinião ajuda a melhorar a plataforma.
+        </p>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="feedback-box">
+
+                    <form id="formFeedback">
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Seu nome
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nomeFeedback"
+                                class="form-control"
+                                placeholder="Digite seu nome"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label d-block">
+                                Avaliação
+                            </label>
+
+                            <div class="rating">
+
+                                <input
+                                    type="radio"
+                                    id="estrela5"
+                                    name="estrela"
+                                    value="5"
+                                    required
+                                >
+                                <label for="estrela5">★</label>
+
+                                <input
+                                    type="radio"
+                                    id="estrela4"
+                                    name="estrela"
+                                    value="4"
+                                >
+                                <label for="estrela4">★</label>
+
+                                <input
+                                    type="radio"
+                                    id="estrela3"
+                                    name="estrela"
+                                    value="3"
+                                >
+                                <label for="estrela3">★</label>
+
+                                <input
+                                    type="radio"
+                                    id="estrela2"
+                                    name="estrela"
+                                    value="2"
+                                >
+                                <label for="estrela2">★</label>
+
+                                <input
+                                    type="radio"
+                                    id="estrela1"
+                                    name="estrela"
+                                    value="1"
+                                >
+                                <label for="estrela1">★</label>
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Tipo de feedback
+                            </label>
+
+                            <select
+                                id="tipoFeedback"
+                                class="form-select"
+                                required
+                            >
+
+                                <option value="">
+                                    Selecione
+                                </option>
+
+                                <option>Elogio</option>
+                                <option>Sugestão</option>
+                                <option>Problema</option>
+                                <option>Dúvida</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Sua mensagem
+                            </label>
+
+                            <textarea
+                                id="textoFeedback"
+                                class="form-control"
+                                rows="5"
+                                placeholder="Escreva sua opinião..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-success btn-lg w-100"
+                        >
+
+                            <i class="bi bi-chat-heart-fill"></i>
+
+                            Enviar feedback
+
+                        </button>
+
+                    </form>
+
+                    <div
+                        id="sucessoFeedback"
+                        class="alert alert-success mt-4 d-none"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6 mb-4">
+
+                <h3>
+                    <i class="bi bi-recycle"></i>
+                    ReUse+
+                </h3>
+
+                <p>
+                    Doe, reutilize e transforme.
+                </p>
+
+                <p>
+                    Plataforma acadêmica de sustentabilidade,
+                    reutilização e responsabilidade social.
+                </p>
+
+            </div>
+
+            <div class="col-md-3 mb-4">
+
+                <h5>Navegação</h5>
+
+                <p>
+                    <a href="#inicio">Início</a>
+                </p>
+
+                <p>
+                    <a href="#categorias">Categorias</a>
+                </p>
+
+                <p>
+                    <a href="#doar">Fazer doação</a>
+                </p>
+
+                <p>
+                    <a href="#feedback">Feedback</a>
+                </p>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <h5>Projeto</h5>
+
+                <p>ODS 12</p>
+                <p>Economia circular</p>
+                <p>Reutilização</p>
+                <p>Desenvolvimento Web</p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+
+            <small>
+                © 2026 ReUse+ | Projeto acadêmico
+            </small>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+/* ==========================================================
+   ReUse+ 2.0 — Controle de estoque, pré-cadastro e CEP
+   Dados da demonstração ficam no localStorage.
+========================================================== */
+
+const CHAVE_ESTOQUE = "reuseplus_estoque_v2";
+const CHAVE_INTERESSES = "reuseplus_interesses_v2";
+const CHAVE_DOACOES = "reuseplus_doacoes_v2";
+
+const estoqueInicial = [
+    {id:"livros-historia", titulo:"Livros de História", categoria:"Livros", cidade:"Zé Doca", quantidade:10, retido:0, descricao:"Coleção de livros em bom estado.", imagem:"https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=900&q=80"},
+    {id:"notebook", titulo:"Notebook", categoria:"Computadores", cidade:"Zé Doca", quantidade:2, retido:0, descricao:"Notebook para uso educacional.", imagem:"https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=900&q=80"},
+    {id:"mesa-escritorio", titulo:"Mesa de escritório", categoria:"Móveis", cidade:"Zé Doca", quantidade:3, retido:0, descricao:"Mesa em bom estado de conservação.", imagem:"https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80"},
+    {id:"impressora", titulo:"Impressora", categoria:"Impressoras", cidade:"Zé Doca", quantidade:2, retido:0, descricao:"Impressora para reaproveitamento.", imagem:"https://images.unsplash.com/photo-1612815154858-60aa4c59e34e?auto=format&fit=crop&w=900&q=80"},
+    {id:"kit-utilitarios", titulo:"Kit de utilitários", categoria:"Utilitários", cidade:"Zé Doca", quantidade:5, retido:0, descricao:"Materiais diversos em condições de reutilização.", imagem:"https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=900&q=80"},
+    {id:"eletronicos", titulo:"Eletrônicos", categoria:"Eletrônicos", cidade:"Zé Doca", quantidade:4, retido:0, descricao:"Equipamentos destinados ao reaproveitamento.", imagem:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"}
+];
+
+function ler(chave, padrao) {
+    try { return JSON.parse(localStorage.getItem(chave)) ?? padrao; }
+    catch(e) { return padrao; }
+}
+function salvar(chave, valor) { localStorage.setItem(chave, JSON.stringify(valor)); }
+
+let estoque = ler(CHAVE_ESTOQUE, estoqueInicial);
+let interesses = ler(CHAVE_INTERESSES, []);
+let doacoes = ler(CHAVE_DOACOES, []);
+
+function normalizar(texto) {
+    return String(texto || "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+}
+function escaparHTML(texto) {
+    const div=document.createElement("div"); div.textContent=texto ?? ""; return div.innerHTML;
+}
+function formatarCEP(v) {
+    const n=String(v||"").replace(/\D/g,"").slice(0,8);
+    return n.length > 5 ? n.slice(0,5)+"-"+n.slice(5) : n;
+}
+function cepValido(cep) { return /^\d{8}$/.test(String(cep).replace(/\D/g,"")); }
+
+async function consultarCEP(cep, enderecoId, statusId) {
+    const status=document.getElementById(statusId);
+    const endereco=document.getElementById(enderecoId);
+    const numero=String(cep||"").replace(/\D/g,"");
+    if(!cepValido(numero)) {
+        if(status) status.innerHTML='<span class="text-danger">Digite um CEP válido com 8 números.</span>';
+        if(endereco) endereco.value="";
+        return null;
+    }
+    if(status) status.innerHTML='<span class="text-primary"><i class="bi bi-hourglass-split"></i> Consultando CEP...</span>';
+    try {
+        const resposta=await fetch("https://viacep.com.br/ws/"+numero+"/json/");
+        if(!resposta.ok) throw new Error("Falha na consulta");
+        const dados=await resposta.json();
+        if(dados.erro) throw new Error("CEP não encontrado");
+        const cidade=normalizar(dados.localidade);
+        const uf=normalizar(dados.uf);
+        if(cidade !== "ze doca" || uf !== "ma") {
+            if(endereco) endereco.value="";
+            if(status) status.innerHTML='<span class="text-danger"><i class="bi bi-exclamation-circle"></i> Este CEP não pertence a Zé Doca/MA. Informe um CEP da cidade.</span>';
+            return null;
+        }
+        const linha=[dados.logradouro, dados.bairro, "Zé Doca/MA"].filter(Boolean).join(" — ");
+        if(endereco) endereco.value=linha;
+        if(status) status.innerHTML='<span class="text-success"><i class="bi bi-check-circle"></i> Endereço confirmado em Zé Doca/MA.</span>';
+        return {...dados, cidadeExibicao:"Zé Doca/MA", enderecoCompleto:linha};
+    } catch(e) {
+        if(endereco) endereco.value="";
+        if(status) status.innerHTML='<span class="text-danger">Não foi possível consultar o CEP. Verifique sua conexão e tente novamente.</span>';
+        return null;
+    }
+}
+
+async function confirmarCEP(cep, enderecoId, statusId) {
+    return await consultarCEP(cep, enderecoId, statusId);
+}
+
+function statusEstoque(item) {
+    const disp=item.quantidade;
+    if(disp <= 0) return ['Esgotado','stock-empty'];
+    if(disp <= 2) return ['Últimas unidades','stock-low'];
+    return ['Disponível','stock-available'];
+}
+
+function renderEstoque() {
+    const painel=document.getElementById("painelEstoque");
+    if(!painel) return;
+    painel.innerHTML=estoque.map(item=>{
+        const [rotulo, classe]=statusEstoque(item);
+        return `
+        <div class="col-md-6 col-lg-4">
+          <div class="stock-card">
+            <div class="d-flex justify-content-between align-items-start gap-2">
+              <span class="donation-tag">${escaparHTML(item.categoria)}</span>
+              <span class="stock-badge ${classe}">${rotulo}</span>
+            </div>
+            <h5 class="mt-3">${escaparHTML(item.titulo)}</h5>
+            <p class="text-muted small mb-2">${escaparHTML(item.descricao)}</p>
+            <div class="d-flex justify-content-between align-items-end">
+              <div><span class="stock-number">${item.quantidade}</span><div class="small text-muted">disponível</div></div>
+              <div class="text-end"><strong>${item.retido}</strong><div class="small text-muted">retido</div></div>
+            </div>
+            <button class="btn btn-success w-100 mt-3" ${item.quantidade<=0?'disabled':''} onclick="abrirInteresse('${item.id}')">
+              <i class="bi bi-person-plus"></i> Tenho interesse
+            </button>
+          </div>
+        </div>`;
+    }).join("");
+    atualizarEstatisticas();
+}
+
+function atualizarEstatisticas() {
+    const disponivel=estoque.reduce((s,i)=>s+i.quantidade,0);
+    const retido=estoque.reduce((s,i)=>s+i.retido,0);
+    const interessesAtivos=interesses.filter(i=>i.status==="Retido").length;
+    document.getElementById("statDisponivel").textContent=disponivel;
+    document.getElementById("statRetido").textContent=retido;
+    document.getElementById("statInteresses").textContent=interessesAtivos;
+    const contadorD=document.getElementById("contadorDoacoes");
+    const contadorI=document.getElementById("contadorItens");
+    if(contadorD) contadorD.textContent=3+doacoes.length;
+    if(contadorI) contadorI.textContent=13+doacoes.reduce((s,d)=>s+Number(d.quantidade||0),0);
+}
+
+function abrirInteresse(id) {
+    const item=estoque.find(i=>i.id===id);
+    if(!item || item.quantidade<=0) return;
+    document.getElementById("interesseItemId").value=id;
+    document.getElementById("interesseQuantidade").max=item.quantidade;
+    document.getElementById("interesseQuantidade").value=1;
+    document.getElementById("resumoItemInteresse").innerHTML=
+      `<strong>${escaparHTML(item.titulo)}</strong><br>Disponível: ${item.quantidade} unidade(s).`;
+    new bootstrap.Modal(document.getElementById("modalInteresse")).show();
+}
+
+document.getElementById("interesseCep")?.addEventListener("input", function(){this.value=formatarCEP(this.value);});
+document.getElementById("interesseCep")?.addEventListener("blur", function(){
+    consultarCEP(this.value,"interesseEndereco","statusCepInteresse");
+});
+document.getElementById("cepRetirada")?.addEventListener("input", function(){this.value=formatarCEP(this.value);});
+document.getElementById("cepRetirada")?.addEventListener("blur", function(){
+    consultarCEP(this.value,"enderecoRetirada","statusCepRetirada");
+});
+document.getElementById("cepDoacao")?.addEventListener("input", function(){this.value=formatarCEP(this.value);});
+document.getElementById("cepDoacao")?.addEventListener("blur", function(){
+    consultarCEP(this.value,"enderecoDoacao","statusCepDoacao");
+});
+
+document.getElementById("formInteresse")?.addEventListener("submit", async function(e){
+    e.preventDefault();
+    const id=document.getElementById("interesseItemId").value;
+    const item=estoque.find(i=>i.id===id);
+    const quantidade=Number(document.getElementById("interesseQuantidade").value);
+    if(!item || quantidade<1 || quantidade>item.quantidade) {
+        alert("A quantidade solicitada não está disponível no estoque.");
+        return;
+    }
+    const endereco=await confirmarCEP(document.getElementById("interesseCep").value,"interesseEndereco","statusCepInteresse");
+    if(!endereco) return;
+
+    item.quantidade-=quantidade;
+    item.retido+=quantidade;
+    const registro={
+        id:Date.now(),
+        itemId:id,
+        item:item.titulo,
+        quantidade,
+        nome:document.getElementById("interesseNome").value.trim(),
+        email:document.getElementById("interesseEmail").value.trim(),
+        telefone:document.getElementById("interesseTelefone").value.trim(),
+        cep:formatarCEP(document.getElementById("interesseCep").value),
+        endereco:endereco.enderecoCompleto,
+        data:new Date().toLocaleString("pt-BR"),
+        status:"Retido"
+    };
+    interesses.push(registro);
+    salvar(CHAVE_ESTOQUE,estoque);
+    salvar(CHAVE_INTERESSES,interesses);
+    renderEstoque();
+    this.reset();
+    bootstrap.Modal.getInstance(document.getElementById("modalInteresse"))?.hide();
+    alert(`Pré-cadastro realizado!\n\n${item.titulo}\nQuantidade retida: ${quantidade}\n\nO estoque foi atualizado.`);
+});
+
+function abrirGestao() {
+    renderGestao();
+    new bootstrap.Modal(document.getElementById("modalGestao")).show();
+}
+
+function renderGestao() {
+    const el=document.getElementById("listaInteresses");
+    if(!interesses.length) {
+        el.innerHTML='<div class="alert alert-info">Ainda não há pré-cadastros de interesse.</div>';
+        return;
+    }
+    el.innerHTML=`
+      <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead><tr><th>Interessado</th><th>Item</th><th>Qtd.</th><th>Local</th><th>Status</th><th>Ação</th></tr></thead>
+        <tbody>
+        ${interesses.map(i=>`
+          <tr>
+            <td><strong>${escaparHTML(i.nome)}</strong><br><small>${escaparHTML(i.email)}<br>${escaparHTML(i.telefone)}</small></td>
+            <td>${escaparHTML(i.item)}</td>
+            <td>${i.quantidade}</td>
+            <td><small>${escaparHTML(i.cep)}<br>${escaparHTML(i.endereco)}</small></td>
+            <td><span class="badge ${i.status==='Retido'?'text-bg-warning':'text-bg-success'}">${i.status}</span></td>
+            <td>
+              ${i.status==='Retido' ? `
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-success" onclick="marcarRetirado(${i.id})" title="Confirmar retirada"><i class="bi bi-check2"></i></button>
+                <button class="btn btn-outline-danger" onclick="liberarRetencao(${i.id})" title="Liberar estoque"><i class="bi bi-arrow-counterclockwise"></i></button>
+              </div>` : '<span class="text-muted">Concluído</span>'}
+            </td>
+          </tr>`).join("")}
+        </tbody>
+      </table></div>
+      <p class="muted-note mt-2"><i class="bi bi-info-circle"></i> Dados armazenados apenas no navegador para fins acadêmicos/demonstração.</p>`;
+}
+
+function marcarRetirado(id) {
+    const r=interesses.find(i=>i.id===id);
+    if(!r) return;
+    r.status="Retirado";
+    salvar(CHAVE_INTERESSES,interesses);
+    renderGestao(); atualizarEstatisticas();
+}
+
+function liberarRetencao(id) {
+    const r=interesses.find(i=>i.id===id);
+    if(!r || r.status!=="Retido") return;
+    const item=estoque.find(i=>i.id===r.itemId);
+    if(item) { item.quantidade+=r.quantidade; item.retido=Math.max(0,item.retido-r.quantidade); }
+    r.status="Cancelado";
+    salvar(CHAVE_ESTOQUE,estoque);
+    salvar(CHAVE_INTERESSES,interesses);
+    renderEstoque(); renderGestao();
+}
+
+/* Seleção de categoria */
+function selecionarCategoria(categoria) {
+    const campo=document.getElementById("categoriaDoacao");
+    if(campo) campo.value=categoria;
+    document.getElementById("doar")?.scrollIntoView({behavior:"smooth"});
+}
+
+/* Pré-visualização da foto */
+document.getElementById("fotoDoacao")?.addEventListener("change", function(event){
+    const arquivo=event.target.files[0], preview=document.getElementById("previewFoto");
+    preview.innerHTML="";
+    if(!arquivo) return;
+    if(!arquivo.type.startsWith("image/")) { alert("Selecione uma imagem válida."); event.target.value=""; return; }
+    const imagem=document.createElement("img");
+    imagem.src=URL.createObjectURL(arquivo); imagem.alt="Pré-visualização da doação"; imagem.className="preview-doacao";
+    preview.appendChild(imagem);
+});
+
+/* Cadastro de doação com endereço em Zé Doca */
+document.getElementById("formDoacao")?.addEventListener("submit", async function(event){
+    event.preventDefault();
+    const nome=document.getElementById("nomeDoador").value.trim();
+    const email=document.getElementById("emailDoador").value.trim();
+    const categoria=document.getElementById("categoriaDoacao").value;
+    const estado=document.getElementById("estadoDoacao").value;
+    const quantidade=Number(document.getElementById("quantidadeDoacao").value);
+    const cidade=document.getElementById("cidadeDoacao").value.trim();
+    const titulo=document.getElementById("tituloDoacao").value.trim();
+    const descricao=document.getElementById("descricaoDoacao").value.trim();
+    const cep=document.getElementById("cepDoacao").value;
+
+    const endereco=await confirmarCEP(cep,"enderecoDoacao","statusCepDoacao");
+    if(!endereco) {
+        alert("Confirme um CEP localizado em Zé Doca/MA antes de cadastrar a doação.");
+        return;
+    }
+    const nova={
+        id:"doacao-"+Date.now(),
+        titulo,categoria,cidade:"Zé Doca",quantidade,retido:0,descricao,
+        imagem:"https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=900&q=80",
+        doador:nome,email,estado,cep:formatarCEP(cep),endereco:endereco.enderecoCompleto
+    };
+    estoque.push(nova); doacoes.push(nova);
+    salvar(CHAVE_ESTOQUE,estoque); salvar(CHAVE_DOACOES,doacoes);
+    renderEstoque(); atualizarEstatisticas();
+    const mensagem=document.getElementById("mensagemDoacao");
+    mensagem.classList.remove("d-none");
+    mensagem.innerHTML=`<strong>Doação cadastrada com sucesso!</strong><br><br>
+      Item: <strong>${escaparHTML(titulo)}</strong><br>
+      Quantidade: <strong>${quantidade}</strong><br>
+      Local: <strong>${escaparHTML(endereco.enderecoCompleto)}</strong><br><br>
+      O item já foi incluído no controle de estoque.`;
+    this.reset(); document.getElementById("previewFoto").innerHTML=""; document.getElementById("enderecoDoacao").value="";
+});
+
+/* Filtro de doações agora usa o estoque */
+function filtrarDoacoes() {
+    const busca=normalizar(document.getElementById("busca").value);
+    const categoria=normalizar(document.getElementById("filtroCategoria").value);
+    const cidade=normalizar(document.getElementById("filtroCidade").value);
+    const lista=document.getElementById("listaDoacoes");
+    const itens=estoque.filter(i=>
+        (!busca || normalizar(i.titulo).includes(busca)) &&
+        (!categoria || normalizar(i.categoria)===categoria) &&
+        (!cidade || normalizar(i.cidade).includes(cidade))
+    );
+    lista.innerHTML=itens.map(i=>{
+        const [rotulo,classe]=statusEstoque(i);
+        return `<div class="col-md-6 col-lg-4 item-doacao">
+          <div class="donation-card">
+            <img src="${i.imagem}" class="donation-image" alt="${escaparHTML(i.titulo)}">
+            <div class="donation-body">
+              <span class="donation-tag">${escaparHTML(i.categoria)}</span>
+              <h4 class="mt-3">${escaparHTML(i.titulo)}</h4>
+              <p>${escaparHTML(i.descricao)}</p>
+              <p><i class="bi bi-geo-alt-fill text-success"></i> Zé Doca/MA</p>
+              <p><i class="bi bi-box-seam text-success"></i> Disponível: <strong>${i.quantidade}</strong></p>
+              <span class="stock-badge ${classe}">${rotulo}</span>
+              <button class="btn btn-outline-success w-100 mt-3" ${i.quantidade<=0?'disabled':''} onclick="abrirInteresse('${i.id}')">
+                <i class="bi bi-person-plus"></i> Tenho interesse
+              </button>
+            </div>
+          </div>
+        </div>`;
+    }).join("");
+    document.getElementById("semResultados").classList.toggle("d-none", itens.length!==0);
+}
+document.getElementById("busca")?.addEventListener("keydown",e=>{if(e.key==="Enter")filtrarDoacoes();});
+document.getElementById("filtroCidade")?.addEventListener("keydown",e=>{if(e.key==="Enter")filtrarDoacoes();});
+document.getElementById("filtroCategoria")?.addEventListener("change",filtrarDoacoes);
+
+/* Feedback */
+document.getElementById("formFeedback")?.addEventListener("submit",function(event){
+    event.preventDefault();
+    const nome=document.getElementById("nomeFeedback").value.trim();
+    const tipo=document.getElementById("tipoFeedback").value;
+    const nota=document.querySelector('input[name="estrela"]:checked');
+    if(!nota){alert("Selecione uma avaliação de 1 a 5 estrelas.");return;}
+    const resultado=document.getElementById("sucessoFeedback");
+    resultado.classList.remove("d-none");
+    resultado.innerHTML=`<strong>Obrigado pelo seu feedback, ${escaparHTML(nome)}!</strong><br><br>
+      Avaliação: <strong>${nota.value} estrela(s)</strong><br>Tipo: <strong>${escaparHTML(tipo)}</strong><br><br>
+      Seu feedback foi registrado nesta demonstração.`;
+    this.reset();
+});
+
+/* Inicialização */
+document.addEventListener("DOMContentLoaded",()=>{
+    renderEstoque();
+    filtrarDoacoes();
+    atualizarEstatisticas();
+});
+</script>
+
+
+</body>
+</html>
